@@ -1,0 +1,53 @@
+{
+    "name": "test.super.com",
+    "version": "1.0.1",
+    "description": "Test with Super Project",
+    "main": "index.js",
+    "scripts": {
+        "start": "yarn && npm run build:prod && npm run server:run",
+        "start:pm2": "yarn && npm run build:prod && pm2 restart pm2.json",
+        "start:pm2:qa": "yarn && npm run build:qa && pm2 restart pm2.json",
+        "start:fenn": "yarn && npm run start:pm2:qa",
+        "build:prod": "npm run build:prod:client && npm run build:prod:server",
+        "build:prod:client": "cross-env WEBPACK_BUILD_ENV=prod WEBPACK_BUILD_STAGE=client BULID_FOR=prod node ./super.build.js",
+        "build:prod:server": "cross-env WEBPACK_BUILD_ENV=prod WEBPACK_BUILD_STAGE=server BULID_FOR=prod node ./super.build.js",
+        "build:qa": "npm run build:qa:client && npm run build:qa:server",
+        "build:qa:client": "cross-env WEBPACK_BUILD_ENV=prod WEBPACK_BUILD_STAGE=client BULID_FOR=qa node ./super.build.js",
+        "build:qa:server": "cross-env WEBPACK_BUILD_ENV=prod WEBPACK_BUILD_STAGE=server BULID_FOR=qa node ./super.build.js",
+        "pm2:dev": "npm run pm2:dev:client && npm run pm2:dev:server && npm run pm2:dev:run",
+        "pm2:dev:client": "pm2 restart pm2.json --only super-dev-client",
+        "pm2:dev:server": "pm2 restart pm2.json --only super-dev-server",
+        "pm2:dev:run": "pm2 restart pm2.json --only super-dev-server-run --watch",
+        "dev:client": "cross-env WEBPACK_BUILD_ENV=dev WEBPACK_BUILD_STAGE=client WEBPACK_DEV_SERVER_PORT=3001 node ./super.build.js",
+        "dev:server": "cross-env WEBPACK_BUILD_ENV=dev WEBPACK_BUILD_STAGE=server WEBPACK_DEV_SERVER_PORT=3001 node ./super.build.js",
+        "server:run": "node ./dist/server",
+        "analyze": "cross-env WEBPACK_BUILD_ENV=prod WEBPACK_BUILD_STAGE=client WEBPACK_ANALYZE=true node ./super.build.js",
+        "build:spa": "rimraf ./dist-spa && cross-env WEBPACK_BUILD_ENV=spa WEBPACK_BUILD_STAGE=client node ./super.build.js",
+        "build:app": "cross-env NAME=CompileDesktopApp node ./scripts/build-app",
+        "dev": "npm run prebuild && npm run pm2:dev",
+        "deploy": "git pull && node ./deploy",
+        "prebuild": "",
+        "prod:run": "cross-env TEST=test node ./dist-web/server",
+        "server:run:test": "cross-env SERVER_DOMAIN=yuubari.fleet.test node ./dist-web/server",
+        "test:server": "npm run build:server && npm run prod:run",
+        "update": "super update"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "keywords": [
+        "react",
+        "webpack",
+        "koa",
+        "redux"
+    ],
+    "author": "dongwenxiao@cmcm.com",
+    "license": "ISC",
+    "dependencies": {
+        "react-responsive": "^4.1.0",
+        "super-project": "3.0.6-alpha.86",
+        "qrcode.react": "0.8.0",
+        "copy-to-clipboard": "3.0.8"
+    }
+}
