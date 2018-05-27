@@ -49,7 +49,6 @@ const aliases = {
     '@src': path.resolve('./src'),
     '@components': path.resolve('./src/client/components'),
     '@containers': path.resolve('./src/client/containers'),
-    '@pages': path.resolve('./src/client/components/pages'),
     '@redux': path.resolve('./src/client/redux'),
     '@utils': path.resolve('./src/client/utils')
 }
