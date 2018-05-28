@@ -1,7 +1,5 @@
 import _routeCheck from 'sp-isomorphic-utils/route-check'
 import Root from '@components/root'
-import Home from '@containers/home'
-import List from '@containers/list'
 
 export const routeCheck = (nextState) => _routeCheck(nextState, __SERVER__ || __SPA__)
 
@@ -11,10 +9,12 @@ export default {
     name: 'root',
 
     indexRoute: {
+        path: '',
+        name: 'home',
         getComponent: (nextState, cb) => {
             require.ensure([], (require) => {
-                if (routeCheck(nextState)) cb(null)
-            })
+                if (routeCheck(nextState)) cb(null, require('../containers/home').default)
+            }, 'home')
         }
     },
 

@@ -1,12 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import List from '@components/list'
+// import { connect } from 'react-redux'
 
-const mapStateToProps = (state) => (
-  "okok"
-)
+// const mapStateToProps = (state) => (
+  // "okok"
+// )
 
-@connect(mapStateToProps)
+// @connect(mapStateToProps)
 
 export default class extends React.Component {
   static onServerRenderHtmlExtend({ext, store}) {
@@ -15,7 +14,9 @@ export default class extends React.Component {
 
   render() {
     return (
-      <List {...this.props} />
+      <div className="list-wrapper">
+        <p>I am a list page/containers.</p>
+      </div>
     )
   }
 }

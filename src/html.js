@@ -80,11 +80,6 @@ export default `
             list-style: none;
         }
         
-        .footer {
-            background: #253047;
-            padding: 80px 0;
-        }
-
         a {
             list-style: none;
             text-decoration: none;
@@ -103,7 +98,7 @@ export default `
         button:focus,
         select:focus,
         textarea:focus {
-            transition: all linear 0.2s;
+            transition: all linear 0.4s;
         }
         </style>
         <script>//inject_css</script>
@@ -116,7 +111,10 @@ export default `
           <script>//inject_react</script>
         </div>
 
+        <script>//inject_redux</script>
         <script>//inject_js</script>
+        <script>//inject_js_locales</script>
+
     </body>
     </html>
 `

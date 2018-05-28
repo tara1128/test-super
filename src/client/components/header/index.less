@@ -1,0 +1,35 @@
+@bg: rgba(0,0,0,.4);
+@bd: rgba(0,0,0,.7);
+
+header {
+  width:100%;
+  height:60px;
+  background:@bg;
+  border-bottom:1px solid @bd;
+  .container {
+    margin:0 auto;
+    width:1200px;
+  }
+  a.logo {
+    float:left;
+    margin:10px 0 0;
+    width:120px;
+    height:40px;
+    color:#000;
+    font-size:20px;
+  }
+  .navs {
+    float:right;
+    li {
+      float:left;
+      margin:20px 20px 0 0;
+      a {
+        color:#008cff;
+        font-size:14px;
+      }
+      a:hover {
+        color:#000;
+      }
+    }
+  }
+}
