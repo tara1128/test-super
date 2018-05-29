@@ -8,14 +8,11 @@ import React from 'react'
 // @connect(mapStateToProps)
 
 export default class extends React.Component {
-  static onServerRenderHtmlExtend({ext, store}) {
-
-  }
 
   render() {
     return (
-      <div className="list-wrapper">
-        <p>I am a list page/containers.</p>
+      <div className={this.props.className}>
+        <p>I am a list page, containers.</p>
       </div>
     )
   }

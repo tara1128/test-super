@@ -30,7 +30,8 @@
         "prod:run": "cross-env TEST=test node ./dist-web/server",
         "server:run:test": "cross-env SERVER_DOMAIN=yuubari.fleet.test node ./dist-web/server",
         "test:server": "npm run build:server && npm run prod:run",
-        "update": "super update"
+        "update": "super update",
+        "copyfiles": "copyfiles ./src/public/* ./dist"
     },
     "repository": {
         "type": "git",
@@ -49,5 +50,8 @@
         "super-project": "3.0.6-alpha.86",
         "qrcode.react": "0.8.0",
         "copy-to-clipboard": "3.0.8"
+    },
+    "devDependencies": {
+        "copyfiles": "^2.0.0"
     }
 }
